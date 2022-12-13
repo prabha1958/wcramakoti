@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+.gallery {
+    --s: 200px; /* control the size */
+    --g: 10px;  /* control the gap */
+
+    display: grid;
+    gap: var(--g);
+    grid-template-columns: repeat(2,auto);
+    position: relative;
+    font-size: 0;
+    transition: .5s;
+    cursor: pointer;
+  }
+  .gallery > img {
+    width: var(--s);
+    aspect-ratio: 1;
+    object-fit: cover;
+    -webkit-mask: linear-gradient(var(--_a),#0000 calc(25% + 0.2929*var(--g) + 1em),#000 0);
+  }
+  .gallery > img:nth-child(1) {--_a:-45deg}
+  .gallery > img:nth-child(2) {--_a: 45deg}
+  .gallery > img:nth-child(3) {--_a:-135deg}
+  .gallery > img:nth-child(4) {--_a: 135deg}
+  .gallery > img:nth-child(5) {
+    position: absolute;
+    width: calc(var(--s) + 2.82em);
+    inset: 0;
+    margin: auto;
+    clip-path: polygon(50% 0,100% 50%,50% 100%,0 50%);
+  }
+
+  .gallery:hover {
+    font-size: calc(var(--s)/5);
+  }
+
+
+
+
+
+
+
+
